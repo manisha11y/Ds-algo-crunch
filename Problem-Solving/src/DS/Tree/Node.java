@@ -1,4 +1,4 @@
-package com.tree;
+package DS.Tree;
 
 // Common Node class to reuse in BST implementations in the package
 public class Node {

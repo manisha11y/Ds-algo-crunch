@@ -1,29 +1,35 @@
-package BFS;
+/* 
+ * program to implement level order traversal in Binary Tree without queue
+ * Output is :Level Order Traversal :   -> 2 -> 1 -> 14 -> null -> 60 -> null -> null -> 12 -> 50 -> null -> null -> null -> null
+ * Expected: Level Order Traversal :   -> 2 -> 1 -> 14 -> null -> 60  -> 12 -> 50 -> null -> null -> null -> null -> null -> null
+ * Output is correct if we ignore nulls
+ */
 
-// program to implement level order traversal in Binary Tree
-class Node{
+package Tree;
+
+class Node {
 	int data;
 	Node left;
 	Node right;
-	
-	Node(int data){
+
+	Node(int data) {
 		this.data = data;
 		left = right = null;
 	}
 }
 
-class BinaryTree{
-	
+class BinaryTree {
+
 	Node root;
-	
-	BinaryTree(){
+
+	BinaryTree() {
 		root = null;
 	}
-	
-	BinaryTree(int data){
+
+	BinaryTree(int data) {
 		root = new Node(data);
 	}
-	
+
 	public Node createTree() {
 		BinaryTree bt = new BinaryTree();
 		bt.root = new Node(2);
@@ -34,56 +40,50 @@ class BinaryTree{
 		bt.root.right.right = new Node(50);
 		return bt.root;
 	}
-	
+
 	public void traverseInorder(Node node) {
-		if(node != null) {
+		if (node != null) {
 			traverseInorder(node.left);
 			System.out.print(" -> " + node.data);
 			traverseInorder(node.right);
 		}
 	}
-	
-	
-	
+
 }
 
-
 public class LevelOrder_BFS {
-	
+
 	public static void levelOrderTraversal(Node node) {
-		 
-			if(node.left!= null) {
-				System.out.print(" -> " + node.left.data);
-			}
-			else
-				System.out.print(" -> " + "null");
-			
-			if(node.right!= null) {
-				System.out.print(" -> " + node.right.data);
-			}
-			else
-				System.out.print(" -> " + "null");
-			
-			if(node.left!= null) {
-				levelOrderTraversal(node.left);
-			}
-			
-			if(node.right!= null) {
-				levelOrderTraversal(node.right);
-			}
-			
-	
+
+		if (node.left != null) {
+			System.out.print(" -> " + node.left.data);
+		} else
+			System.out.print(" -> " + "null");
+
+		if (node.right != null) {
+			System.out.print(" -> " + node.right.data);
+		} else
+			System.out.print(" -> " + "null");
+
+		if (node.left != null) {
+			levelOrderTraversal(node.left);
+		}
+
+		if (node.right != null) {
+			levelOrderTraversal(node.right);
+		}
+
 	}
-	
+
 	public static void main(String[] args) {
-		
+
 		BinaryTree tree = new BinaryTree();
 		Node root = tree.createTree();
 		System.out.print("Inorder Traversal :  ");
 		tree.traverseInorder(root);
 		System.out.print("\nLevel Order Traversal :  ");
-		
-		if(root!= null) {
+
+		if (root != null) {
 			System.out.print(" -> " + root.data);
 			levelOrderTraversal(root);
 		}

@@ -1,12 +1,18 @@
-package com.tree;
-//import com.tree.Node;
+package DS.Tree;
 
+/**
+ * 
+ * @author manisha8
+ * This class contains implementation of Tree insertion for both iterative an recursive approaches
+ * along with there complexity
+ *
+ */
 public class TreeInsertion {
 
 	/*
 	 * In this iterative approach I am trying to stick on the root and just keep on
 	 * traversing the Node by .left and .right without loosing the root ptr, once we
-	 * find the null in root.left we will initial root.left with newNode
+	 * find the null in root.left we will initialize root.left with newNode
 	 */
 
 	// time: O(long(n)) space: O(1)
