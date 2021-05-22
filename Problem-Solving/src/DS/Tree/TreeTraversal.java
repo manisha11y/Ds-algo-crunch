@@ -1,5 +1,11 @@
 package DS.Tree;
 
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Stack;
+
 /**
  * 
  * @author manisha8
@@ -47,6 +53,83 @@ public class TreeTraversal {
 			recursivePostorder(node.right);
 			System.out.print(" -> " +node.value);
 		}
+		
+	}
+	
+	// Iterative Inorder using STACK ds
+	public void iterativeInorder(Node node) {
+		Stack<Node> stack = new Stack<Node>();
+		while(node != null || !stack.isEmpty()) {
+			while(node != null) {
+				stack.push(node);
+				node = node.left;
+			}
+				node = stack.pop();
+				System.out.print(node.value + " - > " );
+				node = node.right;
+								
+			
+		}
+	}
+	
+	public void iterativePreorder(Node node) {
+		Stack<Node> stack = new Stack<Node>();
+		while(node != null || !stack.isEmpty()) {
+			while(node != null) {
+				System.out.print(node.value + " - > " );
+				stack.push(node);
+				node = node.left;
+			}
+				node = stack.pop();				
+				node = node.right;								
+			
+		}
+	}
+	
+	public void iterativePostorder(Node node) {
+		Stack<Node> stack = new Stack<Node>();
+		while(node != null || !stack.isEmpty()) {
+			if(node != null) {
+				stack.push(node);
+				node = node.left;
+			}
+				
+			else if(stack.peek().right == null) {
+				System.out.print(stack.peek().value + " - > " );
+				node = stack.pop();	
+			}
+			else node = node.right;
+			
+		}
+	}
+	
+	// DFS: Iterative approach for level order traversal using queue
+	public void DFSTraversal(Node node) {
+		
+	}
+	
+	// BFS: Iterative approach for level order traversal using queue
+	public void levelOrderTraversal(Node node) {
+		Queue<Node> queue = new ArrayDeque<Node>();
+		Node currNode = node;
+		
+		int level = 0;
+		queue.add(node);
+		while(!queue.isEmpty()) {
+			currNode = queue.poll();
+			System.out.print(currNode.value + " -> ");
+			if(queue.isEmpty())
+			    level++;
+			if(currNode.left != null)
+				queue.add(currNode.left);	
+			if(currNode.right != null)
+				queue.add(currNode.right);
+			
+		}
+		
+		System.out.printf("Height of the tree is : %d ", level);
+		
+		
 		
 	}
 	
