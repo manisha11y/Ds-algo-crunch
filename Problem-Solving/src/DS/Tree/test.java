@@ -1,7 +1,5 @@
 package DS.Tree;
-import DS.Tree.TreeInsertion;
-import DS.Tree.Node;
-import DS.Tree.StackVisual;
+import DS.Tree.*;
 public class test {
 
 	public static void main(String[] args) {

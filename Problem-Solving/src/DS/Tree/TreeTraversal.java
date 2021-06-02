@@ -17,12 +17,13 @@ import java.util.Stack;
  * 
  * 2.Breadth First Search/Level Order Traversal 
  * *** iterative using Queue
- * *** recursive uses stack internally
+ * *** recursive solution - hardly possible
  * 
  */
 public class TreeTraversal {	
 	
-	// time: O(n) as we traverse each node once, space: O(log(n)) worst: O(n) in case of skew tree 
+	// time: O(n) as we traverse each node once, 
+	//space: O(log(n)) worst: O(n) in case of skew tree 
 	public void recursiveInorder(Node node) {
 		if(node == null)
 			return;
@@ -56,7 +57,7 @@ public class TreeTraversal {
 		
 	}
 	
-	// Iterative Inorder using STACK ds
+	/* Iterative DFS - Inorder, Preorder PostOrder using STACK ds */
 	public void iterativeInorder(Node node) {
 		Stack<Node> stack = new Stack<Node>();
 		while(node != null || !stack.isEmpty()) {
@@ -102,12 +103,7 @@ public class TreeTraversal {
 			
 		}
 	}
-	
-	// DFS: Iterative approach for level order traversal using queue
-	public void DFSTraversal(Node node) {
 		
-	}
-	
 	// BFS: Iterative approach for level order traversal using queue
 	public void levelOrderTraversal(Node node) {
 		Queue<Node> queue = new ArrayDeque<Node>();
